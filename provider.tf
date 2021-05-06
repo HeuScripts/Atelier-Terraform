@@ -1,5 +1,16 @@
 # https://www.terraform.io/docs/providers/index.html
 
+subscription_id = "<SUBSCRIPTIONID>"
+tenant_id       = "<TENANTID>"
+
+## Execute in your shell (this will last the session):
+# export ARM_CLIENT_ID="<APPID>"
+# export ARM_CLIENT_SECRET="<PASSWORD>"
+# export ARM_SUBSCRIPTION_ID="<SUBSCRIPTIONID>"
+# export ARM_TENANT_ID="<TENANTID>"
+## If you need to keep working with these, put them into your ~/.bashrc (just copy these lines)
+
+
 # Configure the Terraform Provider with Azure Storage Account
 # more info : https://www.terraform.io/docs/backends/types/azurerm.html
 terraform {
@@ -11,24 +22,7 @@ terraform {
   }
   required_providers {
     azurerm = {
-      # source  = "hashicorp/azurerm"
-      version = "~> 2.24.0"
-    }
-    local = {
-      # source  = "hashicorp/local"
-      version = "~> 1.4.0"
-    }
-    template = {
-      # source  = "hashicorp/template"
-      version = "~> 2.1.2"
-    }
-    time = {
-      # source  = "hashicorp/time"
-      version = "~> 0.5.0"
-    }
-    random = {
-      # source  = "hashicorp/random"
-      version = "~> 2.3.0"
+      source = "hashicorp/azurerm"
     }
   }
 }
@@ -37,16 +31,4 @@ terraform {
 # more info : https://registry.terraform.io/providers/hashicorp/azurerm/latest
 provider "azurerm" {
   features {}
-}
-
-provider "local" {
-}
-
-provider "template" {
-}
-
-provider "time" {
-}
-
-provider "random" {
 }
